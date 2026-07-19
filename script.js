@@ -85,7 +85,7 @@ const categories = {
       { label: "Surprised", file: "feeling-03.png" },
       { label: "Confused", file: "feeling-11.png" },
       { label: "Scared", file: "feeling-13.png" },
-      { label: "Relieved", file: "feeling-20.png" }
+      { label: "Hopeful", file: "feeling-19.png" }
     ]
   },
 
@@ -131,6 +131,151 @@ const currentSelections = {
   feeling: null,
   plan: null,
   item: null
+};
+
+const vocabularySupport = {
+  character: {
+    Dragon: {
+      relatedWords: ["fire", "wings", "scales", "cave", "treasure", "flying"]
+    },
+    Adventurer: {
+      relatedWords: ["explore", "map", "journey", "brave", "discover", "backpack"]
+    },
+    Dog: {
+      relatedWords: ["bark", "leash", "puppy", "fetch", "tail", "loyal"]
+    },
+    Superhero: {
+      relatedWords: ["cape", "rescue", "powers", "villain", "protect", "hero"]
+    },
+    Astronaut: {
+      relatedWords: ["rocket", "helmet", "moon", "space", "mission", "planet"]
+    }
+  },
+
+  setting: {
+    School: {
+      relatedWords: ["classroom", "teacher", "students", "desk", "books", "learning"]
+    },
+    "Outer Space": {
+      relatedWords: ["stars", "planets", "rocket", "galaxy", "moon", "astronaut"]
+    },
+    Campsite: {
+      relatedWords: ["tent", "campfire", "forest", "sleeping bag", "hike", "marshmallows"]
+    },
+    Beach: {
+      relatedWords: ["sand", "ocean", "waves", "shells", "towel", "sunscreen"]
+    },
+    City: {
+      relatedWords: ["buildings", "streets", "cars", "park", "traffic", "skyline"]
+    }
+  },
+
+  problem: {
+    Robber: {
+      relatedWords: ["steal", "thief", "escape", "police", "money", "crime"]
+    },
+    "Broken Bridge": {
+      relatedWords: ["broken", "gap", "repair", "crossing", "danger", "river"]
+    },
+    "Monster Attack": {
+      relatedWords: ["roar", "chase", "danger", "giant", "escape", "creature"]
+    },
+    Trapped: {
+      relatedWords: ["stuck", "escape", "rescue", "locked", "help", "free"]
+    },
+    "Swapped Bodies": {
+      relatedWords: ["switch", "change", "identity", "surprise", "confusion", "transform"]
+    }
+  },
+
+  feeling: {
+    Angry: {
+      synonyms: ["mad", "furious"],
+      antonyms: ["calm", "pleased"]
+    },
+    Surprised: {
+      synonyms: ["astonished", "shocked"],
+      antonyms: ["expecting", "prepared"]
+    },
+    Confused: {
+      synonyms: ["puzzled", "baffled"],
+      antonyms: ["certain", "sure"]
+    },
+    Scared: {
+      synonyms: ["afraid", "frightened"],
+      antonyms: ["confident", "fearless"]
+    },
+    Hopeful: {
+      synonyms: ["optimistic", "encouraged"],
+      antonyms: ["discouraged", "doubtful"]
+    }
+  },
+
+  plan: {
+    Build: {
+      relatedWords: ["construct", "create", "blueprint", "tools", "design", "assemble"]
+    },
+    "Use Magic": {
+      relatedWords: ["spell", "wand", "wizard", "enchantment", "potion", "magical"]
+    },
+    Hide: {
+      relatedWords: ["sneak", "camouflage", "secret", "hiding place", "escape", "cover"]
+    },
+    Experiment: {
+      relatedWords: ["test", "science", "observe", "discover", "laboratory", "results"]
+    },
+    "Wear a Disguise": {
+      relatedWords: ["costume", "mask", "wig", "pretend", "identity", "disguise"]
+    }
+  },
+
+  item: {
+    Telescope: {
+      definition: "A tool used to see things far away.",
+      category: "Tool",
+      function: "See distant objects",
+      attributes: "Long, adjustable, portable",
+      madeOf: "Metal, glass, plastic",
+      parts: "Lenses, eyepiece, tube, tripod",
+      location: "Observatory, campsite, ship, outdoors"
+    },
+    "Walkie-Talkie": {
+      definition: "A handheld radio used for talking.",
+      category: "Communication device",
+      function: "Talk with people over a distance",
+      attributes: "Portable, handheld, wireless",
+      madeOf: "Plastic, metal, electronics",
+      parts: "Antenna, speaker, microphone, buttons",
+      location: "Backpack, emergency kit, vehicle"
+    },
+    "Duct Tape": {
+      definition: "A strong tape used to fix things.",
+      category: "Supply",
+      function: "Repair, hold, or seal objects",
+      attributes: "Sticky, strong, flexible",
+      madeOf: "Fabric mesh, plastic coating, adhesive",
+      parts: "Roll, tape strip",
+      location: "Toolbox, garage, workshop"
+    },
+    "Magic Wand": {
+      definition: "A stick used to cast magical spells.",
+      category: "Magical object",
+      function: "Cast spells or do magic",
+      attributes: "Thin, lightweight, magical",
+      madeOf: "Wood or magical material",
+      parts: "Handle, shaft, tip",
+      location: "Wizard's bag, castle, enchanted forest"
+    },
+    Disguise: {
+      definition: "Clothing or accessories used to look like someone else.",
+      category: "Clothing or costume",
+      function: "Hide an identity or pretend to be someone else",
+      attributes: "Wearable, removable, creative",
+      madeOf: "Fabric, plastic, accessories",
+      parts: "Mask, hat, wig, clothing",
+      location: "Costume box, theater, spy kit"
+    }
+  }
 };
 
 const rollingCategories = new Set();
@@ -365,6 +510,13 @@ function resetAllCategories() {
   document.getElementById("storyTitle").value = "";
   document.getElementById("storyWriting").value = "";
 
+  const vocabularyDetails =
+    document.getElementById("vocabularyDetails");
+
+  if (vocabularyDetails) {
+    vocabularyDetails.open = false;
+  }
+
   setStatus("");
   updateAllSupports();
 }
@@ -418,6 +570,93 @@ function connectResolutionToggle() {
   });
 }
 
+function formatVocabularyValues(values) {
+  return Array.isArray(values) ? values.join(", ") : values;
+}
+
+function createVocabularyLines(categoryName, support) {
+  if (categoryName === "feeling") {
+    return [
+      ["Synonyms", formatVocabularyValues(support.synonyms)],
+      ["Antonyms", formatVocabularyValues(support.antonyms)]
+    ];
+  }
+
+  if (categoryName === "item") {
+    return [
+      ["What it is", support.definition],
+      ["Category", `It is a type of ${support.category.toLowerCase()}.`],
+      ["Function", `It is used to ${support.function.toLowerCase()}.`],
+      ["Attributes", `It is ${support.attributes.toLowerCase()}.`],
+      ["Made of", `It is made of ${support.madeOf.toLowerCase()}.`],
+      ["Parts", `It has ${support.parts.toLowerCase()}.`],
+      ["Location", `You find it in or near: ${support.location}.`]
+    ];
+  }
+
+  return [
+    ["Related Words", formatVocabularyValues(support.relatedWords)]
+  ];
+}
+
+function getVocabularyCards() {
+  const cards = [];
+
+  Object.entries(categories).forEach(
+    ([categoryName, category]) => {
+      const selection = currentSelections[categoryName];
+
+      if (!isCategoryVisible(categoryName) || !selection) {
+        return;
+      }
+
+      const support =
+        vocabularySupport[categoryName]?.[selection.label];
+
+      if (!support) {
+        return;
+      }
+
+      cards.push({
+        categoryName,
+        categoryTitle: category.title,
+        label: selection.label,
+        lines: createVocabularyLines(categoryName, support)
+      });
+    }
+  );
+
+  return cards;
+}
+
+function makeVocabularyCardMarkup(card) {
+  const linesMarkup = card.lines
+    .map(
+      ([heading, value]) => `
+        <p class="vocabulary-line">
+          <strong>${heading}:</strong>
+          ${value}
+        </p>
+      `
+    )
+    .join("");
+
+  return `
+    <article class="vocabulary-entry">
+      <div class="vocabulary-entry-heading">
+        <h3>${card.label}</h3>
+        <span class="vocabulary-category-label">
+          ${card.categoryTitle}
+        </span>
+      </div>
+
+      <div class="vocabulary-entry-body">
+        ${linesMarkup}
+      </div>
+    </article>
+  `;
+}
+
 function updateVocabularyPanel() {
   const showVocabulary =
     document.getElementById("toggleVocabulary").checked;
@@ -439,37 +678,20 @@ function updateVocabularyPanel() {
     return;
   }
 
-  Object.entries(categories).forEach(
-    ([categoryName, category]) => {
-      const selection =
-        currentSelections[categoryName];
+  const cards = getVocabularyCards();
 
-      if (
-        !isCategoryVisible(categoryName) ||
-        !selection
-      ) {
-        return;
-      }
-
-      const entry = document.createElement("div");
-      entry.className = "vocabulary-entry";
-
-      entry.innerHTML = `
-        <strong>${category.title}:</strong>
-        ${selection.label}
-      `;
-
-      list.appendChild(entry);
-    }
-  );
-
-  if (!list.children.length) {
+  if (!cards.length) {
     list.innerHTML = `
-      <div class="vocabulary-entry">
-        Roll one or more categories to build your vocabulary list.
+      <div class="vocabulary-empty">
+        Roll one or more categories to see vocabulary support.
       </div>
     `;
+    return;
   }
+
+  list.innerHTML = cards
+    .map(makeVocabularyCardMarkup)
+    .join("");
 }
 
 function getSentenceSupportMode() {
@@ -647,32 +869,6 @@ function updateSentenceSupportPanel() {
   `;
 }
 
-function updateEducatorMode() {
-  const isEducatorMode =
-    document.getElementById("educatorMode").checked;
-
-  const educatorPanel =
-    document.getElementById("educatorPromptPanel");
-
-  educatorPanel.classList.toggle(
-    "hidden-support",
-    !isEducatorMode
-  );
-
-  if (!isEducatorMode) {
-    return;
-  }
-
-  document.getElementById("toggleLabels").checked = true;
-  document.getElementById("toggleVocabulary").checked = true;
-
-  document.querySelector(
-    'input[name="sentenceSupport"][value="generated"]'
-  ).checked = true;
-
-  updateAllSupports();
-}
-
 function updateAllSupports() {
   updateLabelVisibility();
   updateVocabularyPanel();
@@ -739,36 +935,35 @@ function buildPrintPlanner() {
     document.getElementById("toggleVocabulary").checked;
 
   if (showVocabulary) {
-    const vocabularyEntries = [];
+    const cards = getVocabularyCards();
 
-    Object.entries(categories).forEach(
-      ([categoryName, category]) => {
-        const selection =
-          currentSelections[categoryName];
+    printVocabulary.innerHTML = cards.length
+      ? `
+        <h2>Vocabulary Support</h2>
 
-        if (
-          !isCategoryVisible(categoryName) ||
-          !selection
-        ) {
-          return;
-        }
-
-        vocabularyEntries.push(`
-          <div>
-            <strong>${category.title}:</strong>
-            ${selection.label}
-          </div>
-        `);
-      }
-    );
-
-    printVocabulary.innerHTML = `
-      <h2>Story Vocabulary</h2>
-
-      <div class="print-vocabulary-grid">
-        ${vocabularyEntries.join("")}
-      </div>
-    `;
+        <div class="print-vocabulary-grid">
+          ${cards
+            .map(
+              (card) => `
+                <div class="print-vocabulary-card">
+                  <strong>${card.categoryTitle}: ${card.label}</strong>
+                  ${card.lines
+                    .map(
+                      ([heading, value]) => `
+                        <div>
+                          <span>${heading}:</span>
+                          ${value}
+                        </div>
+                      `
+                    )
+                    .join("")}
+                </div>
+              `
+            )
+            .join("")}
+        </div>
+      `
+      : "";
   } else {
     printVocabulary.innerHTML = "";
   }
@@ -850,10 +1045,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("toggleVocabulary")
     .addEventListener("change", updateVocabularyPanel);
-
-  document
-    .getElementById("educatorMode")
-    .addEventListener("change", updateEducatorMode);
 
   document
     .querySelectorAll(

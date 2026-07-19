@@ -107,11 +107,6 @@
                   <input type="checkbox" id="toggleVocabulary">
                   <span>Show vocabulary support</span>
                 </label>
-
-                <label class="setting-option educator-toggle">
-                  <input type="checkbox" id="educatorMode">
-                  <span>Educator Mode</span>
-                </label>
               </div>
             </details>
 
@@ -704,22 +699,18 @@
         <div id="sentenceSupportContent"></div>
       </section>
 
-      <section class="support-panel hidden-support" id="vocabularyPanel">
-        <h2>Story Vocabulary</h2>
-        <div class="vocabulary-grid" id="vocabularyList"></div>
-      </section>
+      <section class="support-panel hidden-support vocabulary-panel" id="vocabularyPanel">
+        <details class="vocabulary-details" id="vocabularyDetails">
+          <summary>📖 Vocabulary Support</summary>
 
-      <section class="support-panel hidden-support educator-prompts" id="educatorPromptPanel">
-        <h2>Instructional Prompts</h2>
+          <div class="vocabulary-content">
+            <p class="vocabulary-intro">
+              Explore related words and helpful word features for the story elements you rolled.
+            </p>
 
-        <ul>
-          <li>What details in the pictures helped you create your story?</li>
-          <li>Why might the character feel this way?</li>
-          <li>How does the plan address the problem?</li>
-          <li>How could the item help the character?</li>
-          <li>What might happen if the plan does not work?</li>
-          <li>How will the character’s actions lead to the resolution?</li>
-        </ul>
+            <div class="vocabulary-grid" id="vocabularyList"></div>
+          </div>
+        </details>
       </section>
 
     </div>
