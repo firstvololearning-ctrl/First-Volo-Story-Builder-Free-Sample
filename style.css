@@ -483,6 +483,15 @@ input[type="radio"] {
   list-style: none;
 }
 
+/* Hide the browser's default disclosure marker */
+.vocabulary-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.vocabulary-details > summary::marker {
+  content: "";
+}
+
 .vocabulary-details > summary::-webkit-details-marker {
   display: none;
 }
@@ -491,7 +500,7 @@ input[type="radio"] {
   position: absolute;
   top: 50%;
   right: 22px;
-  content: "â–¾";
+  content: "\25BE";
   font-size: 22px;
   transform: translateY(-50%);
   transition: transform 0.18s ease;
