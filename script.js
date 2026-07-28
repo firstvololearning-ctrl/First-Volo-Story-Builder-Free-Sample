@@ -1890,3 +1890,94 @@ document
     restoreBrowserSave();
   });
 })();
+/* =========================
+   ABOUT MODAL
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutButton =
+    document.getElementById("aboutButton");
+
+  const aboutModal =
+    document.getElementById("aboutModal");
+
+  const closeAbout =
+    document.getElementById("closeAbout");
+
+  const aboutWindow =
+    aboutModal?.querySelector(".about-window");
+
+  if (
+    !aboutButton ||
+    !aboutModal ||
+    !closeAbout ||
+    !aboutWindow
+  ) {
+    console.warn("About modal elements were not found.");
+    return;
+  }
+
+  function openAboutModal() {
+    aboutModal.classList.remove("hidden");
+    aboutModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+
+    closeAbout.focus();
+  }
+
+  function closeAboutModal() {
+    aboutModal.classList.add("hidden");
+    aboutModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+
+    aboutButton.focus();
+  }
+
+  aboutButton.addEventListener(
+    "click",
+    openAboutModal
+  );
+
+  closeAbout.addEventListener(
+    "click",
+    closeAboutModal
+  );
+
+  aboutModal.addEventListener("click", (event) => {
+    if (event.target === aboutModal) {
+      closeAboutModal();
+    }
+  });
+
+  aboutWindow.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      !aboutModal.classList.contains("hidden")
+    ) {
+      closeAboutModal();
+    }
+  });
+
+  aboutModal
+    .querySelectorAll(".about-nav a")
+    .forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const targetId =
+          link.getAttribute("href");
+
+        const targetSection =
+          aboutModal.querySelector(targetId);
+
+        targetSection?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
+});
