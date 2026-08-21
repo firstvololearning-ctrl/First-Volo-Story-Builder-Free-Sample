@@ -8,13 +8,14 @@ const categories = {
     cardId: "characterCard",
     toggleId: "showCharacter",
     folder: "assets/characters",
+    prefix: "character",
     starterImage: "assets/categories/category-01.png",
     entries: [
-      { label: "Dragon", file: "character-04.png" },
-      { label: "Adventurer", file: "character-13.png" },
-      { label: "Dog", file: "character-15.png" },
-      { label: "Superhero", file: "character-16.png" },
-      { label: "Astronaut", file: "character-19.png" }
+      { id: "character-dragon", label: "Dragon", file: "character-04.png" },
+      { id: "character-adventurer", label: "Adventurer", file: "character-13.png" },
+      { id: "character-dog", label: "Dog", file: "character-15.png" },
+      { id: "character-superhero", label: "Superhero", file: "character-16.png" },
+      { id: "character-astronaut", label: "Astronaut", file: "character-19.png" }
     ]
   },
 
@@ -25,13 +26,14 @@ const categories = {
     cardId: "settingCard",
     toggleId: "showSetting",
     folder: "assets/settings",
+    prefix: "setting",
     starterImage: "assets/categories/category-02.png",
     entries: [
-      { label: "School", file: "setting-02.png" },
-      { label: "Outer Space", file: "setting-09.png" },
-      { label: "Campsite", file: "setting-12.png" },
-      { label: "Beach", file: "setting-13.png" },
-      { label: "City", file: "setting-21.png" }
+      { id: "setting-school", label: "School", file: "setting-02.png" },
+      { id: "setting-outer-space", label: "Outer Space", file: "setting-09.png" },
+      { id: "setting-campsite", label: "Campsite", file: "setting-12.png" },
+      { id: "setting-beach", label: "Beach", file: "setting-13.png" },
+      { id: "setting-city", label: "City", file: "setting-21.png" }
     ]
   },
 
@@ -42,33 +44,14 @@ const categories = {
     cardId: "problemCard",
     toggleId: "showProblem",
     folder: "assets/problems",
+    prefix: "problem",
     starterImage: "assets/categories/category-03.png",
     entries: [
-      {
-        label: "Robber",
-        phrase: "encountered a robber",
-        file: "problem-06.png"
-      },
-      {
-        label: "Broken Bridge",
-        phrase: "found a broken bridge blocking the way",
-        file: "problem-07.png"
-      },
-      {
-        label: "Monster Attack",
-        phrase: "was attacked by a monster",
-        file: "problem-08.png"
-      },
-      {
-        label: "Trapped",
-        phrase: "became trapped in a closed space",
-        file: "problem-16.png"
-      },
-      {
-        label: "Swapped Bodies",
-        phrase: "suddenly swapped bodies with someone",
-        file: "problem-22.png"
-      }
+      { id: "problem-robber", label: "Robber", phrase: "encountered a robber", file: "problem-06.png" },
+      { id: "problem-broken-bridge", label: "Broken Bridge", phrase: "found a broken bridge blocking the way", file: "problem-07.png" },
+      { id: "problem-monster-attack", label: "Monster Attack", phrase: "was attacked by a monster", file: "problem-08.png" },
+      { id: "problem-trapped", label: "Trapped", phrase: "became trapped in a closed space", file: "problem-16.png" },
+      { id: "problem-swapped-bodies", label: "Swapped Bodies", phrase: "suddenly swapped bodies with someone", file: "problem-22.png" }
     ]
   },
 
@@ -79,30 +62,32 @@ const categories = {
     cardId: "feelingCard",
     toggleId: "showFeeling",
     folder: "assets/feelings",
+    prefix: "feeling",
     starterImage: "assets/categories/category-04.png",
     entries: [
-      { label: "Angry", file: "feeling-01.png" },
-      { label: "Surprised", file: "feeling-03.png" },
-      { label: "Confused", file: "feeling-11.png" },
-      { label: "Scared", file: "feeling-13.png" },
-      { label: "Hopeful", file: "feeling-19.png" }
+      { id: "feeling-angry", label: "Angry", file: "feeling-01.png" },
+      { id: "feeling-surprised", label: "Surprised", file: "feeling-03.png" },
+      { id: "feeling-confused", label: "Confused", file: "feeling-11.png" },
+      { id: "feeling-scared", label: "Scared", file: "feeling-13.png" },
+      { id: "feeling-hopeful", label: "Hopeful", file: "feeling-20.png" }
     ]
   },
 
   plan: {
-    title: "Plan",
+    title: "Plan Idea",
     imageId: "planImage",
     labelId: "planLabel",
     cardId: "planCard",
     toggleId: "showPlan",
     folder: "assets/plans",
+    prefix: "plan",
     starterImage: "assets/categories/category-05.png",
     entries: [
-      { label: "Build", file: "plan-02.png" },
-      { label: "Use Magic", file: "plan-09.png" },
-      { label: "Hide", file: "plan-17.png" },
-      { label: "Experiment", file: "plan-18.png" },
-      { label: "Wear a Disguise", file: "plan-22.png" }
+      { id: "plan-build", label: "Build", file: "plan-02.png" },
+      { id: "plan-use-magic", label: "Use Magic", file: "plan-09.png" },
+      { id: "plan-hide", label: "Hide", file: "plan-17.png" },
+      { id: "plan-experiment", label: "Experiment", file: "plan-18.png" },
+      { id: "plan-wear-a-disguise", label: "Wear a Disguise", file: "plan-22.png" }
     ]
   },
 
@@ -113,13 +98,14 @@ const categories = {
     cardId: "itemCard",
     toggleId: "showItem",
     folder: "assets/items",
+    prefix: "item",
     starterImage: "assets/categories/category-06.png",
     entries: [
-      { label: "Telescope", file: "item-08.png" },
-      { label: "Walkie-Talkie", file: "item-11.png" },
-      { label: "Duct Tape", file: "item-15.png" },
-      { label: "Magic Wand", file: "item-17.png" },
-      { label: "Disguise", file: "item-22.png" }
+      { id: "item-telescope", label: "Telescope", file: "item-08.png" },
+      { id: "item-walkie-talkie", label: "Walkie-Talkie", file: "item-11.png" },
+      { id: "item-duct-tape", label: "Duct Tape", file: "item-15.png" },
+      { id: "item-magic-wand", label: "Magic Wand", file: "item-17.png" },
+      { id: "item-disguise", label: "Disguise", file: "item-22.png" }
     ]
   }
 };
@@ -137,14 +123,56 @@ const rollingCategories = new Set();
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function getCategoryLength(category) {
-  return category.entries ? category.entries.length : category.labels.length;
+  return Array.isArray(category.entries)
+    ? category.entries.length
+    : 0;
 }
 
 function getEntry(category, index) {
-  return category.entries
-    ? category.entries[index]
-    : { label: category.labels[index] };
+  return category.entries?.[index] || null;
 }
+
+function findEntryIndexById(category, entryId) {
+  if (!entryId || !Array.isArray(category.entries)) {
+    return -1;
+  }
+
+  return category.entries.findIndex(
+    (entry) => entry.id === entryId
+  );
+}
+
+function validateCategoryCatalog() {
+  const seenIds = new Set();
+
+  Object.entries(categories).forEach(
+    ([categoryName, category]) => {
+      if (!Array.isArray(category.entries) || !category.entries.length) {
+        throw new Error(
+          `Story category ${categoryName} has no entries.`
+        );
+      }
+
+      category.entries.forEach((entry) => {
+        if (!entry.id || !entry.label || !entry.file) {
+          throw new Error(
+            `Story category ${categoryName} has an incomplete entry.`
+          );
+        }
+
+        if (seenIds.has(entry.id)) {
+          throw new Error(
+            `Duplicate Story Builder card ID: ${entry.id}`
+          );
+        }
+
+        seenIds.add(entry.id);
+      });
+    }
+  );
+}
+
+validateCategoryCatalog();
 
 function getRandomIndex(length, previousIndex = null) {
   if (length <= 1) return 0;
@@ -161,12 +189,13 @@ function getRandomIndex(length, previousIndex = null) {
 function makeImagePath(category, index) {
   const entry = getEntry(category, index);
 
-  if (entry.file) {
-    return `${category.folder}/${entry.file}`;
+  if (!entry?.file) {
+    throw new Error(
+      `Missing image filename for ${category.title} card ${index}.`
+    );
   }
 
-  const paddedNumber = String(index + 1).padStart(2, "0");
-  return `${category.folder}/${category.prefix}-${paddedNumber}.png`;
+  return `${category.folder}/${entry.file}`;
 }
 
 function preloadImage(path) {
@@ -230,6 +259,7 @@ function applySelection(categoryName, index) {
   const imagePath = makeImagePath(category, index);
 
   currentSelections[categoryName] = {
+    id: entry.id,
     index,
     label: entry.label,
     phrase: entry.phrase || null,
@@ -303,7 +333,9 @@ async function rollCategory(categoryName) {
 
 async function rollAllCategories() {
   const visibleCategories = Object.keys(categories).filter(
-    isCategoryVisible
+    (categoryName) =>
+      categoryName !== "plan" &&
+      isCategoryVisible(categoryName)
   );
 
   if (!visibleCategories.length) {
@@ -332,7 +364,7 @@ async function rollAllCategories() {
     }
   }
 
-  setStatus("✨ Your story is ready!");
+  setStatus("✨ Your story parts are ready! Now make a plan.");
 
   if (!reducedMotion) {
     await sleep(550);
@@ -409,12 +441,13 @@ function connectCategoryToggle(categoryName) {
   });
 }
 
-function connectResolutionToggle() {
-  const toggle =
-    document.getElementById("showResolution");
+function connectStudentGeneratedToggle(toggleId, cardId) {
+  const toggle = document.getElementById(toggleId);
+  const card = document.getElementById(cardId);
 
-  const card =
-    document.getElementById("resolutionCard");
+  if (!toggle || !card) {
+    return;
+  }
 
   toggle.addEventListener("change", () => {
     card.classList.toggle(
@@ -544,7 +577,8 @@ function getOpenPrompts() {
     "Where does the story take place?",
     "What problem occurs?",
     "How does the character feel about the problem?",
-    "What does the character plan to do to fix the problem?",
+    "What does the character decide or hope to do about the problem?",
+    "What does the character actually do or try to carry out the plan?",
     "How could the item help?",
     "How does the story end?"
   ];
@@ -555,7 +589,8 @@ function getBasicStarters() {
     "One day, __________ was in __________.",
     "Suddenly, __________.",
     "The character felt __________ because __________.",
-    "The plan was to __________.",
+    "The character planned to __________.",
+    "Then the character tried to __________.",
     "The __________ could help by __________.",
     "In the end, __________."
   ];
@@ -614,7 +649,8 @@ function getGeneratedStarters() {
     `One day, ${characterPhrase} was ${settingPhrase}.`,
     `Suddenly, ${characterReference.toLowerCase()} ${problemPhrase}.`,
     `${characterReference} felt ${feelingPhrase} because __________.`,
-    `${characterReference} decided to ${planPhrase}.`,
+    `${characterReference} planned to ${planPhrase}.`,
+    `${characterReference} then tried to __________.`,
     `${itemPhrase} could help by __________.`,
     "In the end, __________."
   ];
@@ -686,6 +722,34 @@ function buildPrintPlanner() {
 
   const showLabels =
     document.getElementById("toggleLabels").checked;
+
+  const printPlanOrganizer =
+    document.getElementById("printPlanOrganizer");
+  const printAttemptOrganizer =
+    document.getElementById("printAttemptOrganizer");
+  const printResolutionOrganizer =
+    document.getElementById("printResolutionOrganizer");
+  const printItemOrganizer =
+    document.getElementById("printItemOrganizer");
+
+  if (printPlanOrganizer) {
+    printPlanOrganizer.hidden =
+      !(document.getElementById("showPlan")?.checked ?? true);
+  }
+
+  if (printAttemptOrganizer) {
+    printAttemptOrganizer.hidden =
+      !(document.getElementById("showAttempt")?.checked ?? true);
+  }
+
+  if (printResolutionOrganizer) {
+    printResolutionOrganizer.hidden =
+      !(document.getElementById("showResolution")?.checked ?? true);
+  }
+
+  if (printItemOrganizer) {
+    printItemOrganizer.hidden = !isCategoryVisible("item");
+  }
 
   Object.entries(categories).forEach(
     ([categoryName, category]) => {
@@ -861,7 +925,8 @@ document.addEventListener("DOMContentLoaded", () => {
     connectCategoryToggle
   );
 
-  connectResolutionToggle();
+  connectStudentGeneratedToggle("showAttempt", "attemptCard");
+  connectStudentGeneratedToggle("showResolution", "resolutionCard");
 
   document
     .getElementById("printPlanner")
@@ -1149,7 +1214,8 @@ document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
   const STORAGE_KEY = "firstVoloStoryBuilderSavedWork";
-  const SAVE_VERSION = 1;
+  const STORY_APP_NAME = "First Volo Story Builder";
+  const STORY_SCHEMA_VERSION = 2;
 
   const plannerCategories = [
     "character",
@@ -1166,9 +1232,10 @@ document.addEventListener("DOMContentLoaded", () => {
       setting: "Add notes about the setting.",
       problem: "Add notes about the problem.",
       feeling: "Add notes about the character’s feeling.",
-      plan: "Add notes about the plan.",
-      item: "Add notes about the item.",
-      resolution: "Add notes about how the story ends."
+      plan: "Add notes about the character’s plan.",
+      attempt: "What does the character actually do or try to carry out the plan? If needed, what do they try next?",
+      item: "How could the item connect to the plan or attempt(s)?",
+      resolution: "What happens because of the attempt(s)? How is the problem resolved?"
     },
 
     open: {
@@ -1181,20 +1248,253 @@ document.addEventListener("DOMContentLoaded", () => {
       feeling:
         "How does the character feel? Why does the character feel that way?",
       plan:
-        "What does the character plan to do? How could the plan solve the problem?",
+        "What does the character decide or hope to do? How does the plan grow from the problem and feeling?",
+      attempt:
+        "What does the character actually do or try to carry out the plan? If needed, what do they try next?",
       item:
-        "How could the item help? What might the character do with it?",
+        "How could the item connect to the plan or attempt(s)?",
       resolution:
-        "How is the problem solved? How does the character feel at the end?"
+        "What happens because of the attempt(s)? How is the problem resolved?"
     }
   };
 
   let autoSaveTimer = null;
   let statusTimer = null;
   let isRestoringStory = false;
+  let currentStoryIdentity = null;
 
   function getElement(id) {
     return document.getElementById(id);
+  }
+
+  const localStoryStorage = {
+    load() {
+      return localStorage.getItem(STORAGE_KEY);
+    },
+
+    save(data) {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(data)
+      );
+    },
+
+    clear() {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  };
+
+  function createStoryId() {
+    if (
+      window.crypto &&
+      typeof window.crypto.randomUUID === "function"
+    ) {
+      return window.crypto.randomUUID();
+    }
+
+    return [
+      "story",
+      Date.now().toString(36),
+      Math.random().toString(36).slice(2, 10)
+    ].join("-");
+  }
+
+  function createStoryIdentity(seed = {}) {
+    const now = new Date().toISOString();
+
+    return {
+      storyId:
+        typeof seed.storyId === "string" && seed.storyId
+          ? seed.storyId
+          : createStoryId(),
+
+      createdAt:
+        typeof seed.createdAt === "string" && seed.createdAt
+          ? seed.createdAt
+          : typeof seed.savedAt === "string" && seed.savedAt
+            ? seed.savedAt
+            : now
+    };
+  }
+
+  function ensureStoryIdentity() {
+    if (!currentStoryIdentity) {
+      currentStoryIdentity = createStoryIdentity();
+    }
+
+    return currentStoryIdentity;
+  }
+
+  function resetStoryIdentity() {
+    currentStoryIdentity = createStoryIdentity();
+  }
+
+  function resolveSavedSelectionIndex(
+    categoryName,
+    savedSelection
+  ) {
+    if (!savedSelection) {
+      return -1;
+    }
+
+    const category = categories[categoryName];
+
+    if (!category) {
+      return -1;
+    }
+
+    if (typeof savedSelection.id === "string") {
+      const byId = findEntryIndexById(
+        category,
+        savedSelection.id
+      );
+
+      if (byId >= 0) {
+        return byId;
+      }
+    }
+
+    if (
+      Number.isInteger(savedSelection.index) &&
+      savedSelection.index >= 0 &&
+      savedSelection.index < getCategoryLength(category)
+    ) {
+      return savedSelection.index;
+    }
+
+    if (typeof savedSelection.label === "string") {
+      return category.entries.findIndex(
+        (entry) => entry.label === savedSelection.label
+      );
+    }
+
+    return -1;
+  }
+
+  function migrateSelectionToV2(
+    categoryName,
+    savedSelection
+  ) {
+    const index = resolveSavedSelectionIndex(
+      categoryName,
+      savedSelection
+    );
+
+    if (index < 0) {
+      return null;
+    }
+
+    const category = categories[categoryName];
+    const entry = getEntry(category, index);
+
+    return {
+      id: entry.id,
+      label: entry.label,
+      phrase: entry.phrase || null,
+      imagePath: makeImagePath(category, index)
+    };
+  }
+
+  function getStorySchemaVersion(data) {
+    if (Number.isInteger(data?.schemaVersion)) {
+      return data.schemaVersion;
+    }
+
+    if (Number.isInteger(data?.version)) {
+      return data.version;
+    }
+
+    return 1;
+  }
+
+  function validateStoryData(data) {
+    if (
+      !data ||
+      typeof data !== "object" ||
+      data.app !== STORY_APP_NAME
+    ) {
+      throw new Error(
+        "This file is not a First Volo Story Builder save file."
+      );
+    }
+
+    const schemaVersion = getStorySchemaVersion(data);
+
+    if (
+      schemaVersion < 1 ||
+      schemaVersion > STORY_SCHEMA_VERSION
+    ) {
+      throw new Error(
+        `This Story Builder save uses unsupported schema version ${schemaVersion}.`
+      );
+    }
+
+    return true;
+  }
+
+  function migrateStoryData(data) {
+    validateStoryData(data);
+
+    const schemaVersion = getStorySchemaVersion(data);
+
+    if (schemaVersion === STORY_SCHEMA_VERSION) {
+      const identity = createStoryIdentity(data);
+
+      return {
+        ...data,
+        app: STORY_APP_NAME,
+        schemaVersion: STORY_SCHEMA_VERSION,
+        storyId: identity.storyId,
+        createdAt: identity.createdAt,
+        updatedAt:
+          typeof data.updatedAt === "string" && data.updatedAt
+            ? data.updatedAt
+            : identity.createdAt
+      };
+    }
+
+    if (schemaVersion !== 1) {
+      throw new Error(
+        `Cannot migrate Story Builder schema version ${schemaVersion}.`
+      );
+    }
+
+    const migratedSelections = {};
+
+    plannerCategories.forEach((categoryName) => {
+      migratedSelections[categoryName] =
+        migrateSelectionToV2(
+          categoryName,
+          data.selections?.[categoryName]
+        );
+    });
+
+    const identity = createStoryIdentity(data);
+    const timestamp =
+      typeof data.savedAt === "string" && data.savedAt
+        ? data.savedAt
+        : identity.createdAt;
+
+    return {
+      app: STORY_APP_NAME,
+      schemaVersion: STORY_SCHEMA_VERSION,
+      storyId: identity.storyId,
+      createdAt: identity.createdAt,
+      updatedAt: timestamp,
+
+      title: data.title || "",
+      storyWriting: data.storyWriting || "",
+      plannerNotes: data.plannerNotes || {},
+      selections: migratedSelections,
+
+      settings: {
+        ...(data.settings || {}),
+        showThinkingPrompts:
+          Boolean(data.settings?.showThinkingPrompts)
+      },
+
+      challenge: data.challenge || null
+    };
   }
 
   function showSaveStatus(message, duration = 2200) {
@@ -1225,7 +1525,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function getPlannerNotes() {
     const notes = {};
 
-    [...plannerCategories, "resolution"].forEach((categoryName) => {
+    [...plannerCategories, "attempt", "resolution"].forEach((categoryName) => {
       notes[categoryName] =
         getElement(
           `planner${capitalize(categoryName)}Notes`
@@ -1249,6 +1549,9 @@ document.addEventListener("DOMContentLoaded", () => {
         )?.checked ?? true;
     });
 
+    visibility.attempt =
+      getElement("showAttempt")?.checked ?? true;
+
     visibility.resolution =
       getElement("showResolution")?.checked ?? true;
 
@@ -1260,10 +1563,17 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".challenge-checkbox")
     );
 
+    const challengeScene =
+      getElement("challengeCardScene");
+
+    const challengeCard =
+      getElement("challengeCard");
+
     return {
       mode: getCheckedValue("challengeMode", "none"),
 
       selected: challengeCheckboxes.map((checkbox) => ({
+        id: checkbox.id || "",
         text: checkbox.dataset.text || "",
         category: checkbox.dataset.category || "",
         checked: checkbox.checked
@@ -1279,22 +1589,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       revealed:
         Boolean(
-          getElement("challengeCardScene")?.classList.contains(
-            "is-revealed"
-          )
+          challengeScene &&
+          !challengeScene.hidden &&
+          challengeCard?.classList.contains("is-flipped")
         )
     };
   }
 
   function buildStorySaveData() {
     const selections = {};
+    const identity = ensureStoryIdentity();
+    const updatedAt = new Date().toISOString();
 
     plannerCategories.forEach((categoryName) => {
       const selection = currentSelections[categoryName];
 
       selections[categoryName] = selection
         ? {
-            index: selection.index,
+            id: selection.id,
             label: selection.label,
             phrase: selection.phrase || null,
             imagePath: selection.imagePath
@@ -1303,9 +1615,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     return {
-      app: "First Volo Story Builder",
-      version: SAVE_VERSION,
-      savedAt: new Date().toISOString(),
+      app: STORY_APP_NAME,
+      schemaVersion: STORY_SCHEMA_VERSION,
+      storyId: identity.storyId,
+      createdAt: identity.createdAt,
+      updatedAt,
 
       title: getElement("storyTitle")?.value || "",
       storyWriting: getElement("storyWriting")?.value || "",
@@ -1316,37 +1630,58 @@ document.addEventListener("DOMContentLoaded", () => {
         showLabels: getElement("toggleLabels")?.checked ?? false,
         showVocabulary:
           getElement("toggleVocabulary")?.checked ?? false,
+        showThinkingPrompts:
+          getElement("thinkingPromptsToggle")?.checked ?? false,
         sentenceSupport:
           getCheckedValue("sentenceSupport", "off"),
         categoryVisibility: getCategoryVisibility()
       },
 
-      challenge: getChallengeState()
+      challenge: getChallengeState(),
+
+      instructionalSupport:
+        window.FirstVoloInstructionalSupport?.getState?.() || null
     };
   }
 
   function saveToBrowser(showMessage = false) {
     if (isRestoringStory) {
-      return;
+      return false;
     }
 
     try {
       const data = buildStorySaveData();
 
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(data)
+      localStoryStorage.save(data);
+
+      const library =
+        window.FirstVoloStoryLibrary?.local;
+
+      const isInMyStories = Boolean(
+        library?.has?.(data.storyId)
       );
 
-      if (showMessage) {
-        showSaveStatus("✓ Work saved in this browser.");
+      if (isInMyStories) {
+        library.save(data);
       }
+
+      if (showMessage) {
+        showSaveStatus(
+          isInMyStories
+            ? "✓ My Stories updated."
+            : "✓ Draft saved on this device."
+        );
+      }
+
+      return isInMyStories;
     } catch (error) {
       console.error("Could not auto-save story:", error);
 
       if (showMessage) {
-        showSaveStatus("Could not save in this browser.");
+        showSaveStatus("Could not save on this device.");
       }
+
+      return false;
     }
   }
 
@@ -1358,19 +1693,19 @@ document.addEventListener("DOMContentLoaded", () => {
     window.clearTimeout(autoSaveTimer);
 
     autoSaveTimer = window.setTimeout(() => {
-      saveToBrowser(false);
-      showSaveStatus("✓ Auto-saved", 1100);
+      const isInMyStories = saveToBrowser(false);
+
+      showSaveStatus(
+        isInMyStories
+          ? "✓ My Stories updated"
+          : "✓ Draft saved on this device",
+        1300
+      );
     }, 550);
   }
 
   function updatePlannerPrompts() {
-    const sentenceMode =
-      getCheckedValue("sentenceSupport", "off");
-
-    const promptSet =
-      sentenceMode === "open"
-        ? plannerPrompts.open
-        : plannerPrompts.default;
+    const promptSet = plannerPrompts.open;
 
     Object.entries(promptSet).forEach(
       ([categoryName, prompt]) => {
@@ -1426,8 +1761,14 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         image.src = category.starterImage;
         image.alt = category.title;
-        label.textContent =
-          `Roll to choose a ${category.title.toLowerCase()}.`;
+
+        if (categoryName === "plan") {
+          label.textContent =
+            "Make your own plan. A rolled idea is optional.";
+        } else {
+          label.textContent =
+            `Roll to choose a ${category.title.toLowerCase()}.`;
+        }
       }
     });
 
@@ -1467,9 +1808,16 @@ document.addEventListener("DOMContentLoaded", () => {
       .forEach((checkbox) => {
         const match = savedSelections.find(
           (saved) =>
-            saved.text === (checkbox.dataset.text || "") &&
-            saved.category ===
-              (checkbox.dataset.category || "")
+            (
+              saved.id &&
+              checkbox.id &&
+              saved.id === checkbox.id
+            ) ||
+            (
+              saved.text === (checkbox.dataset.text || "") &&
+              saved.category ===
+                (checkbox.dataset.category || "")
+            )
         );
 
         checkbox.checked = Boolean(match?.checked);
@@ -1490,10 +1838,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const revealedCategory = getElement("revealedCategory");
     const revealedText = getElement("revealedChallengeText");
     const scene = getElement("challengeCardScene");
+    const card = getElement("challengeCard");
+    const wasRevealed = Boolean(challenge.revealed);
 
     if (revealedCategory) {
       revealedCategory.textContent =
-        challenge.revealedCategory || "";
+        challenge.revealedCategory || "Mystery Challenge";
     }
 
     if (revealedText) {
@@ -1502,24 +1852,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (scene) {
-      scene.classList.toggle(
-        "is-revealed",
-        Boolean(challenge.revealed)
+      scene.hidden = !wasRevealed;
+    }
+
+    if (card) {
+      card.classList.toggle(
+        "is-flipped",
+        wasRevealed
       );
     }
   }
 
   function restoreStory(data, options = {}) {
-    if (
-      !data ||
-      typeof data !== "object" ||
-      data.app !== "First Volo Story Builder"
-    ) {
-      throw new Error(
-        "This file is not a First Volo Story Builder save file."
-      );
-    }
+    data = migrateStoryData(data);
 
+    currentStoryIdentity = createStoryIdentity(data);
     isRestoringStory = true;
 
     try {
@@ -1536,7 +1883,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const notes = data.plannerNotes || {};
 
-      [...plannerCategories, "resolution"].forEach(
+      [...plannerCategories, "attempt", "resolution"].forEach(
         (categoryName) => {
           const textarea = getElement(
             `planner${capitalize(categoryName)}Notes`
@@ -1553,6 +1900,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const labelsToggle = getElement("toggleLabels");
       const vocabularyToggle =
         getElement("toggleVocabulary");
+      const thinkingToggle =
+        getElement("thinkingPromptsToggle");
 
       if (labelsToggle) {
         labelsToggle.checked =
@@ -1562,6 +1911,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (vocabularyToggle) {
         vocabularyToggle.checked =
           Boolean(settings.showVocabulary);
+      }
+
+      if (thinkingToggle) {
+        thinkingToggle.checked =
+          Boolean(settings.showThinkingPrompts);
       }
 
       applyRadioValue(
@@ -1589,6 +1943,18 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       });
 
+      const attemptToggle =
+        getElement("showAttempt");
+
+      if (attemptToggle) {
+        attemptToggle.checked =
+          visibility.attempt !== false;
+
+        attemptToggle.dispatchEvent(
+          new Event("change", { bubbles: true })
+        );
+      }
+
       const resolutionToggle =
         getElement("showResolution");
 
@@ -1605,16 +1971,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const savedSelection =
           data.selections?.[categoryName];
 
-        if (
-          savedSelection &&
-          Number.isInteger(savedSelection.index) &&
-          savedSelection.index >= 0 &&
-          savedSelection.index <
-            getCategoryLength(categories[categoryName])
-        ) {
+        const selectionIndex =
+          resolveSavedSelectionIndex(
+            categoryName,
+            savedSelection
+          );
+
+        if (selectionIndex >= 0) {
           applySelection(
             categoryName,
-            savedSelection.index
+            selectionIndex
           );
         } else {
           currentSelections[categoryName] = null;
@@ -1636,6 +2002,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       restoreChallengeState(data.challenge);
+
+      window.FirstVoloInstructionalSupport?.restoreState?.(
+        data.instructionalSupport || null
+      );
 
       if (typeof updateAllSupports === "function") {
         updateAllSupports();
@@ -1662,7 +2032,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function restoreBrowserSave() {
-    const savedText = localStorage.getItem(STORAGE_KEY);
+    const savedText = localStoryStorage.load();
 
     if (!savedText) {
       updateStoryPlanner();
@@ -1675,7 +2045,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showSaveStatus("✓ Previous work restored.", 1800);
     } catch (error) {
       console.error("Could not restore saved work:", error);
-      localStorage.removeItem(STORAGE_KEY);
+      localStoryStorage.clear();
       updateStoryPlanner();
     }
   }
@@ -1705,7 +2075,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       link.href = url;
       link.download =
-        `${makeSafeFileName(data.title)}.firstvolo.json`;
+        `${makeSafeFileName(data.title)}.firstvolo`;
 
       document.body.appendChild(link);
       link.click();
@@ -1716,7 +2086,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
 
       saveToBrowser(false);
-      showSaveStatus("✓ Story file saved.");
+      showSaveStatus("✓ Backup downloaded.");
     } catch (error) {
       console.error("Could not save story file:", error);
       showSaveStatus("Could not save the story file.");
@@ -1741,11 +2111,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const lowerName = file.name.toLowerCase();
+
     if (
-      !file.name.toLowerCase().endsWith(".json")
+      !lowerName.endsWith(".firstvolo") &&
+      !lowerName.endsWith(".json")
     ) {
       window.alert(
-        "Please choose a First Volo Story Builder JSON file."
+        "Please choose a First Volo Story Builder file."
       );
       return;
     }
@@ -1776,7 +2149,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function clearPlannerNotes() {
-    [...plannerCategories, "resolution"].forEach(
+    [...plannerCategories, "attempt", "resolution"].forEach(
       (categoryName) => {
         const textarea = getElement(
           `planner${capitalize(categoryName)}Notes`
@@ -1803,7 +2176,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("change", (event) => {
       if (
         event.target.matches(
-          '#toggleLabels, #toggleVocabulary, input[name="sentenceSupport"], input[name="challengeMode"], .challenge-checkbox, [id^="show"]'
+          '#toggleLabels, #toggleVocabulary, #thinkingPromptsToggle, input[name="sentenceSupport"], input[name="challengeMode"], .challenge-checkbox, [id^="show"]'
         )
       ) {
         updateStoryPlanner();
@@ -1823,6 +2196,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 900);
       }
     });
+
+    window.addEventListener(
+      "firstvolo:instructional-support-changed",
+      scheduleAutoSave
+    );
   }
 
   function observeStoryCards() {
@@ -1853,6 +2231,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  window.FirstVoloStoryState = Object.freeze({
+    appName: STORY_APP_NAME,
+    schemaVersion: STORY_SCHEMA_VERSION,
+    build: buildStorySaveData,
+    restore: restoreStory,
+    migrate: migrateStoryData,
+    validate: validateStoryData,
+    newStoryIdentity: resetStoryIdentity
+  });
+
+  window.FirstVoloStoryStorage = Object.freeze({
+    local: localStoryStorage
+  });
+
   document.addEventListener("DOMContentLoaded", () => {
     getElement("saveStory")?.addEventListener(
       "click",
@@ -1872,6 +2264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     getElement("resetAll")?.addEventListener(
       "click",
       () => {
+        resetStoryIdentity();
         clearPlannerNotes();
         updateStoryPlanner();
 
@@ -1887,6 +2280,7 @@ document.addEventListener("DOMContentLoaded", () => {
     restoreBrowserSave();
   });
 })();
+
 /* =========================
    ABOUT MODAL
 ========================= */

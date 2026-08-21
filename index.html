@@ -83,6 +83,13 @@
     Open Story
   </button>
 
+  <input
+    type="file"
+    id="openStoryFile"
+    accept=".firstvolo,.json,application/json"
+    hidden
+  >
+
   <button
     class="print-button"
     id="printPlanner"
@@ -101,12 +108,6 @@
     Export PDF
   </button>
 
-  <input
-    type="file"
-    id="openStoryFile"
-    accept=".json,application/json"
-    hidden
-  >
 </div>
 
 <p
@@ -132,368 +133,64 @@
                   <span>Show vocabulary support</span>
                 </label>
 
-              <label class="setting-option">
-  <input type="checkbox" id="thinkingPromptsToggle">
-  <span>Show Thinking Prompts</span>
-</label>
+
               </div>
             </details>
 
-            <details>
-              <summary>Sentence Support</summary>
 
-              <div class="settings-content">
-                <label class="setting-option">
-                  <input
-                    type="radio"
-                    name="sentenceSupport"
-                    value="off"
-                    checked
-                  >
-                  <span>Off</span>
-                </label>
 
-                <label class="setting-option">
-                  <input
-                    type="radio"
-                    name="sentenceSupport"
-                    value="open"
-                  >
-                  <span>Open Prompts</span>
-                </label>
 
-                <label class="setting-option">
-                  <input
-                    type="radio"
-                    name="sentenceSupport"
-                    value="basic"
-                  >
-                  <span>Sentence Starters</span>
-                </label>
+<details class="instructional-target-settings">
+  <summary>Instructional Target</summary>
 
-                <label class="setting-option">
-                  <input
-                    type="radio"
-                    name="sentenceSupport"
-                    value="generated"
-                  >
-                  <span>Generated Starters</span>
-                </label>
-              </div>
-            </details>
+  <div class="settings-content">
+    <label class="instructional-target-label" for="instructionalTarget">
+      Primary target
+    </label>
+
+    <select id="instructionalTarget" class="instructional-target-select">
+      <option value="off">Off</option>
+      <option value="story-organization">Story Organization</option>
+      <option value="connections-cohesion">Connections &amp; Cohesion</option>
+      <option value="cause-effect">Cause &amp; Effect</option>
+      <option value="sentence-formulation">Sentence Formulation</option>
+      <option value="elaboration">Elaboration</option>
+      <option value="perspective-internal-state">Perspective &amp; Internal State</option>
+      <option value="vocabulary-precision">Vocabulary Precision</option>
+    </select>
+
+    <p class="instructional-target-setting-summary" id="instructionalTargetSettingSummary">
+      Choose one primary language target. Support will open one step at a time only when needed.
+    </p>
+  </div>
+</details>
 
             <details>
               <summary>Story Elements</summary>
 
               <div class="settings-content">
-                <label class="setting-option"><input type="checkbox" id="showCharacter" checked><span>Character</span></label>
-                <label class="setting-option"><input type="checkbox" id="showSetting" checked><span>Setting</span></label>
-                <label class="setting-option"><input type="checkbox" id="showProblem" checked><span>Problem</span></label>
-                <label class="setting-option"><input type="checkbox" id="showFeeling" checked><span>Feeling</span></label>
-                <label class="setting-option"><input type="checkbox" id="showPlan" checked><span>Plan</span></label>
-                <label class="setting-option"><input type="checkbox" id="showItem" checked><span>Item</span></label>
-                <label class="setting-option"><input type="checkbox" id="showResolution" checked><span>Resolution</span></label>
-              </div>
-            </details>
+                <div class="story-element-group">
+                  <p class="story-element-group-label">Core story parts</p>
+                  <label class="setting-option"><input type="checkbox" id="showCharacter" checked><span>Character</span></label>
+                  <label class="setting-option"><input type="checkbox" id="showSetting" checked><span>Setting</span></label>
+                  <label class="setting-option"><input type="checkbox" id="showProblem" checked><span>Problem</span></label>
+                  <label class="setting-option"><input type="checkbox" id="showFeeling" checked><span>Feeling</span></label>
+                  <label class="setting-option"><input type="checkbox" id="showPlan" checked><span>Plan</span></label>
+                  <label class="setting-option"><input type="checkbox" id="showAttempt" checked><span>Action / Attempt(s)</span></label>
+                  <label class="setting-option"><input type="checkbox" id="showResolution" checked><span>Resolution</span></label>
+                </div>
 
-            <details>
-              <summary>Story Challenge</summary>
-
-              <div class="settings-content challenge-settings-content">
-                <fieldset class="challenge-mode">
-                  <legend>Challenge Mode</legend>
-
-                  <label class="setting-option challenge-mode-option">
-                    <input
-                      type="radio"
-                      name="challengeMode"
-                      value="none"
-                      checked
-                    >
-                    <span>
-                      <strong>Off</strong>
-                      <small>No challenge.</small>
-                    </span>
-                  </label>
-
-                  <label class="setting-option challenge-mode-option">
-                    <input
-                      type="radio"
-                      name="challengeMode"
-                      value="pool"
-                    >
-                    <span>
-                      <strong>Educator Challenge Pool</strong>
-                      <small>
-                        Check any number of challenges. The app randomly picks
-                        one from those checked.
-                      </small>
-                    </span>
-                  </label>
-
-                  <label class="setting-option challenge-mode-option">
-                    <input
-                      type="radio"
-                      name="challengeMode"
-                      value="choice"
-                    >
-                    <span>
-                      <strong>Educator Choice</strong>
-                      <small>
-                        Check one challenge. Every student receives that exact
-                        challenge.
-                      </small>
-                    </span>
-                  </label>
-                </fieldset>
-
-                <div id="challengeOptions" hidden>
-                  <h4>🧠 Sentence Formulation</h4>
-
-                  <p class="challenge-subheading">
-                    Subordinating Conjunctions
+                <div class="story-element-group optional-story-element-group">
+                  <p class="story-element-group-label">Optional story element</p>
+                  <label class="setting-option optional-story-option"><input type="checkbox" id="showItem"><span>Item</span></label>
+                  <p class="story-element-group-note">
+                    Add an object for an extra creative constraint. Item is not treated as a required narrative function.
                   </p>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Complex Sentence"
-                      data-text="Tell your story using because."
-                    >
-                    <span>because</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Complex Sentence"
-                      data-text="Tell your story using although."
-                    >
-                    <span>although</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Complex Sentence"
-                      data-text="Tell your story using if."
-                    >
-                    <span>if</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Complex Sentence"
-                      data-text="Tell your story using before."
-                    >
-                    <span>before</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Complex Sentence"
-                      data-text="Tell your story using after."
-                    >
-                    <span>after</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Complex Sentence"
-                      data-text="Tell your story using until."
-                    >
-                    <span>until</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Complex Sentence"
-                      data-text="Tell your story using unless."
-                    >
-                    <span>unless</span>
-                  </label>
-
-                  <p class="challenge-subheading">
-                    Coordinating Conjunctions
-                  </p>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Compound Sentence"
-                      data-text="Tell your story using and to join two complete ideas."
-                    >
-                    <span>and</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Compound Sentence"
-                      data-text="Tell your story using but to join two complete ideas."
-                    >
-                    <span>but</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Compound Sentence"
-                      data-text="Tell your story using or to join two complete ideas."
-                    >
-                    <span>or</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Compound Sentence"
-                      data-text="Tell your story using nor to join two complete ideas."
-                    >
-                    <span>nor</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🧠 Compound Sentence"
-                      data-text="Tell your story using so to join two complete ideas."
-                    >
-                    <span>so</span>
-                  </label>
-
-                  <h4>📚 Vocabulary</h4>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="📚 Vocabulary"
-                      data-text="Use at least 3 describing words in your story."
-                    >
-                    <span>Use at least 3 describing words</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      id="tierTwoCheckbox"
-                      data-category="📚 Vocabulary"
-                      data-text="Use the educator-assigned Tier 2 word in your story."
-                    >
-                    <span>Include an educator-assigned Tier 2 word</span>
-                  </label>
-
-                  <input
-                    type="text"
-                    id="tierTwoWord"
-                    class="tier-two-input"
-                    placeholder="Type the Tier 2 word"
-                  >
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="📚 Vocabulary"
-                      data-text="Use one simile or metaphor in your story."
-                    >
-                    <span>Use one simile or metaphor</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="📚 Vocabulary"
-                      data-text="Use sensory language in your story."
-                    >
-                    <span>Use sensory language</span>
-                  </label>
-
-                  <h4>😊 Social Thinking</h4>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="😊 Social Thinking"
-                      data-text="Explain how a character feels and why."
-                    >
-                    <span>Explain how a character feels and why</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="😊 Social Thinking"
-                      data-text="Tell the story from another character's perspective."
-                    >
-                    <span>Tell the story from another character's perspective</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="😊 Social Thinking"
-                      data-text="Think of three possible solutions before choosing one."
-                    >
-                    <span>Think of three possible solutions before choosing one</span>
-                  </label>
-
-                  <h4>🗣 Narrative</h4>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🗣 Narrative"
-                      data-text="Include dialogue in your story."
-                    >
-                    <span>Include dialogue</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🗣 Narrative"
-                      data-text="Include a flashback in your story."
-                    >
-                    <span>Include a flashback</span>
-                  </label>
-
-                  <label class="setting-option">
-                    <input
-                      type="checkbox"
-                      class="challenge-checkbox"
-                      data-category="🗣 Narrative"
-                      data-text="Include a plot twist in your story."
-                    >
-                    <span>Include a plot twist</span>
-                  </label>
                 </div>
               </div>
             </details>
+
+
           </div>
 
 <div class="title-control">
@@ -514,59 +211,7 @@
           ></p>
         </section>
 
-        <section
-          class="mystery-challenge-section"
-          id="mysteryChallengeSection"
-          hidden
-        >
-          <button
-            id="revealChallengeButton"
-            class="reveal-challenge-button"
-            type="button"
-          >
-            🎁 Reveal Mystery Challenge
-          </button>
 
-          <p
-            class="challenge-error"
-            id="challengeError"
-            role="status"
-            aria-live="polite"
-          ></p>
-
-          <div
-            class="challenge-card-scene"
-            id="challengeCardScene"
-            hidden
-          >
-            <div
-              class="challenge-confetti"
-              id="challengeConfetti"
-              aria-hidden="true"
-            ></div>
-
-            <div class="challenge-card" id="challengeCard">
-              <div class="challenge-card-face challenge-card-front">
-                <span class="gift-icon" aria-hidden="true">🎁</span>
-                <h2>Mystery Challenge</h2>
-                <p>Click the button to reveal your challenge!</p>
-              </div>
-
-              <div class="challenge-card-face challenge-card-back">
-                <p
-                  class="revealed-category"
-                  id="revealedCategory"
-                >
-                  Mystery Challenge
-                </p>
-
-                <h2 id="revealedChallengeText">
-                  Tell your story using although.
-                </h2>
-              </div>
-            </div>
-          </div>
-        </section>
       </header>
 
       <main class="story-grid" id="storyGrid">
@@ -659,7 +304,7 @@
           </button>
         </article>
 
-        <article class="card" id="planCard">
+        <article class="card plan-card" id="planCard">
           <div class="card-heading">
             <span class="step-number">5</span>
             <h2>Plan</h2>
@@ -669,41 +314,48 @@
             <img
               id="planImage"
               src="assets/categories/category-05.png"
-              alt="Roll to choose a plan"
+              alt="Plan"
             >
             <div class="loading-indicator" aria-hidden="true"></div>
           </div>
 
+          <p class="student-generated-prompt">
+            What does the character decide or hope to do because of the problem and how they feel?
+          </p>
+
           <div class="image-label" id="planLabel"></div>
 
-          <button type="button" onclick="rollCategory('plan')">
-            ↻ Roll
-          </button>
+          <div class="plan-idea-box">
+            <span class="plan-idea-label">Optional idea help</span>
+            <p>Make your own plan, or roll a card if you need an idea. You can use it, change it, or ignore it.</p>
+            <button type="button" class="plan-idea-button" onclick="rollCategory('plan')">
+              🎲 Need an idea? Roll a Plan Idea
+            </button>
+          </div>
         </article>
 
-        <article class="card" id="itemCard">
+        <article class="card student-generated-card" id="attemptCard">
           <div class="card-heading">
             <span class="step-number">6</span>
-            <h2>Item</h2>
+            <h2>Action / Attempt(s)</h2>
           </div>
 
           <div class="image-frame">
             <img
-              id="itemImage"
-              src="assets/categories/category-06.png"
-              alt="Roll to choose an item"
+              id="attemptImage"
+              src="assets/categories/category-action-attempt.png"
+              alt="Action or attempt"
             >
-            <div class="loading-indicator" aria-hidden="true"></div>
           </div>
 
-          <div class="image-label" id="itemLabel"></div>
+          <span class="student-generated-badge">Student-generated</span>
 
-          <button type="button" onclick="rollCategory('item')">
-            ↻ Roll
-          </button>
+          <p class="student-generated-prompt">
+            What does the character actually do or try to carry out the plan? If needed, what do they try next?
+          </p>
         </article>
 
-        <article class="card resolution-card" id="resolutionCard">
+        <article class="card resolution-card student-generated-card" id="resolutionCard">
           <div class="card-heading">
             <span class="step-number">7</span>
             <h2>Resolution</h2>
@@ -717,19 +369,78 @@
             >
           </div>
 
-          <p class="resolution-prompt">
-            How will your story end?
+          <span class="student-generated-badge">Student-generated</span>
+
+          <p class="student-generated-prompt">
+            What happens because of the attempt(s)? How is the problem resolved?
           </p>
         </article>
 
+        <article class="card optional-story-card hidden-category" id="itemCard">
+          <div class="card-heading">
+            <span class="optional-story-badge">Optional element</span>
+            <h2>Item</h2>
+          </div>
+
+          <div class="image-frame">
+            <img
+              id="itemImage"
+              src="assets/categories/category-06.png"
+              alt="Roll to choose an optional item"
+            >
+            <div class="loading-indicator" aria-hidden="true"></div>
+          </div>
+
+          <div class="image-label" id="itemLabel"></div>
+
+          <button type="button" onclick="rollCategory('item')">
+            ↻ Roll
+          </button>
+        </article>
+
       </main>
+
+<section
+  class="instructional-focus-panel"
+  id="instructionalFocusPanel"
+  hidden
+  aria-labelledby="instructionalFocusTitle"
+>
+  <div class="instructional-focus-heading">
+    <div>
+      <p class="instructional-focus-kicker">Educator instructional focus</p>
+      <h2 id="instructionalFocusTitle">Instructional Target</h2>
+    </div>
+
+    <span class="instructional-focus-badge">Targeted Support</span>
+  </div>
+
+  <p class="instructional-focus-expected" id="instructionalFocusExpected"></p>
+
+  <details class="instructional-focus-educator">
+    <summary>What should the educator watch for?</summary>
+    <p id="instructionalFocusWatches"></p>
+    <p class="instructional-access-note">
+      <strong>Access Support:</strong>
+      clarifying directions, helping navigate the planner, locating a story card,
+      rereading a prompt, or explaining a non-target word does not count as
+      support for the instructional target.
+    </p>
+  </details>
+
+  <p class="instructional-focus-note">
+    Let the student attempt the language first. If help is needed, open only
+    the next support step, then have the student retry the same idea.
+  </p>
+</section>
+
 <section class="story-planner-panel" id="storyPlannerPanel">
   <details class="story-planner-details" open>
     <summary>🗂 Story Planner</summary>
 
     <div class="story-planner-content">
       <p class="story-planner-intro">
-        Use your story elements to plan your ideas before you write.
+        Use your story elements to develop and connect your story ideas.
       </p>
 
       <div class="story-planner-grid">
@@ -910,7 +621,7 @@
                 class="story-planner-selection"
                 id="plannerPlanLabel"
               >
-                Roll to choose a plan.
+                Make your own plan. A rolled idea is optional.
               </p>
             </div>
           </div>
@@ -919,57 +630,54 @@
             class="story-planner-prompt"
             id="plannerPlanPrompt"
           >
-            Add notes about the plan.
+            What does the character decide or hope to do? How does the plan grow from the problem and feeling?
           </div>
 
           <textarea
             id="plannerPlanNotes"
             class="story-planner-notes"
-            placeholder="What will the character do?"
+            placeholder="What is the character's plan? Why does it make sense?"
           ></textarea>
         </article>
 
         <article
-          class="story-planner-card"
-          id="plannerItemCard"
-          data-planner-category="item"
+          class="story-planner-card student-generated-planner-card"
+          id="plannerAttemptCard"
+          data-planner-category="attempt"
         >
           <div class="story-planner-card-header">
             <div class="story-planner-image-frame">
               <img
-                id="plannerItemImage"
-                src="assets/categories/category-06.png"
-                alt="Item"
+                id="plannerAttemptImage"
+                src="assets/categories/category-action-attempt.png"
+                alt="Action or attempt"
               >
             </div>
 
             <div class="story-planner-heading">
-              <h3>Item</h3>
-              <p
-                class="story-planner-selection"
-                id="plannerItemLabel"
-              >
-                Roll to choose an item.
+              <h3>Action / Attempt(s)</h3>
+              <p class="story-planner-selection">
+                Student-generated
               </p>
             </div>
           </div>
 
           <div
             class="story-planner-prompt"
-            id="plannerItemPrompt"
+            id="plannerAttemptPrompt"
           >
-            Add notes about the item.
+            What does the character actually do or try to carry out the plan? If needed, what do they try next?
           </div>
 
           <textarea
-            id="plannerItemNotes"
+            id="plannerAttemptNotes"
             class="story-planner-notes"
-            placeholder="How could the item help?"
+            placeholder="What does the character do or try? What might they try next?"
           ></textarea>
         </article>
 
         <article
-          class="story-planner-card story-planner-resolution-card"
+          class="story-planner-card story-planner-resolution-card student-generated-planner-card"
           id="plannerResolutionCard"
           data-planner-category="resolution"
         >
@@ -985,7 +693,7 @@
             <div class="story-planner-heading">
               <h3>Resolution</h3>
               <p class="story-planner-selection">
-                It’s up to you!
+                Student-generated
               </p>
             </div>
           </div>
@@ -994,13 +702,55 @@
             class="story-planner-prompt"
             id="plannerResolutionPrompt"
           >
-            Add notes about how the story ends.
+            What happens because of the attempt(s)? How is the problem resolved?
           </div>
 
           <textarea
             id="plannerResolutionNotes"
             class="story-planner-notes"
-            placeholder="How is the problem resolved?"
+            placeholder="What happens because of the attempt(s)? How is the problem resolved?"
+          ></textarea>
+        </article>
+
+        <article
+          class="story-planner-card optional-story-planner-card hidden-planner-card"
+          id="plannerItemCard"
+          data-planner-category="item"
+        >
+          <div class="story-planner-card-header">
+            <div class="story-planner-image-frame">
+              <img
+                id="plannerItemImage"
+                src="assets/categories/category-06.png"
+                alt="Optional item"
+              >
+            </div>
+
+            <div class="story-planner-heading">
+              <div class="planner-heading-with-badge">
+                <h3>Item</h3>
+                <span class="optional-story-badge">Optional element</span>
+              </div>
+              <p
+                class="story-planner-selection"
+                id="plannerItemLabel"
+              >
+                Roll to choose an optional item.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="story-planner-prompt"
+            id="plannerItemPrompt"
+          >
+            How could the item connect to the plan or attempt(s)?
+          </div>
+
+          <textarea
+            id="plannerItemNotes"
+            class="story-planner-notes"
+            placeholder="How could the item connect to the plan or attempt(s)?"
           ></textarea>
         </article>
 
@@ -1018,28 +768,14 @@
         ></textarea>
       </section>
 
-      <section class="support-panel hidden-support" id="sentenceSupportPanel">
-        <h2>Sentence Support</h2>
-        <div id="sentenceSupportContent"></div>
-      </section>
+
 
       <section class="support-panel hidden-support" id="vocabularyPanel">
         <h2>Story Vocabulary</h2>
         <div class="vocabulary-grid" id="vocabularyList"></div>
       </section>
 
-      <section class="support-panel hidden-support thinking-prompts" id="thinkingPromptPanel">
-        <h2>Thinking Prompts</h2>
 
-        <ul>
-          <li>What details in the pictures helped you create your story?</li>
-          <li>Why might the character feel this way?</li>
-          <li>How does the plan address the problem?</li>
-          <li>How could the item help the character?</li>
-          <li>What might happen if the plan does not work?</li>
-          <li>How will the character’s actions lead to the resolution?</li>
-        </ul>
-      </section>
 
     </div>
   </div>
@@ -1094,22 +830,28 @@
       </div>
 
       <div class="organizer-row">
-        <div class="organizer-prompt">
+        <div class="organizer-prompt" id="printPlanOrganizer">
           <h2>Plan</h2>
-          <p>What will the character do?</p>
+          <p>What does the character decide or hope to do because of the problem and feeling?</p>
           <div class="organizer-lines"></div>
         </div>
 
-        <div class="organizer-prompt">
-          <h2>Item</h2>
-          <p>How could this item help?</p>
+        <div class="organizer-prompt" id="printAttemptOrganizer">
+          <h2>Action / Attempt(s)</h2>
+          <p>What does the character actually do or try to carry out the plan? If needed, what do they try next?</p>
           <div class="organizer-lines"></div>
         </div>
       </div>
 
-      <div class="organizer-prompt organizer-ending organizer-resolution">
+      <div class="organizer-prompt" id="printItemOrganizer">
+        <h2>Item (Optional)</h2>
+        <p>How could this item connect to the plan or attempt(s)?</p>
+        <div class="organizer-lines"></div>
+      </div>
+
+      <div class="organizer-prompt organizer-ending organizer-resolution" id="printResolutionOrganizer">
         <h2>Resolution</h2>
-        <p>How does the story end?</p>
+        <p>What happens because of the attempt(s)? How is the problem resolved?</p>
         <div class="organizer-lines organizer-lines-large"></div>
       </div>
     </section>
@@ -1165,28 +907,22 @@
 
     <h1 id="aboutTitle">📖 About First Volo Story Builder</h1>
 
-    <div class="about-sample-note">
-      <strong>Free Sample</strong>
-      <p>
-        This free sample includes the same Story Builder tools and supports
-        as the full version, using a smaller selection of story cards.
-        The full version expands the content library with additional
-        characters, settings, problems, feelings, plans, and items.
-      </p>
-    </div>
-
     <p class="about-intro">
-      <strong>First Volo Story Builder</strong> is an interactive storytelling
-      tool designed to make narrative development, language organization,
-      sentence formulation, and creative writing more visible, structured,
-      and engaging.
+      <strong>First Volo Story Builder</strong> is an interactive narrative-language
+      tool for generating story ideas, organizing narrative relationships, and
+      practicing specific language targets. It can support oral, written, typed,
+      or scribed story production depending on the instructional goal.
+    </p>
+
+    <p>
+      <strong>Free sample:</strong> This version uses the same Story Builder
+      instructional workflow with a smaller set of visual cards.
     </p>
 
     <nav class="about-nav" aria-label="About guide sections">
       <a href="#welcome">Welcome</a>
       <a href="#story">Story</a>
-      <a href="#supports">Supports</a>
-      <a href="#challenge">Challenge</a>
+      <a href="#instructional-support">Instructional Support</a>
       <a href="#planner">Planner</a>
       <a href="#save">Save</a>
       <a href="#print">Print</a>
@@ -1198,15 +934,16 @@
       <h2>👋 Welcome</h2>
 
       <p>
-        Story Builder helps students generate ideas, organize their thinking,
-        develop narrative language, and write complete stories using engaging
-        visual supports.
+        Students generate visual story parts and decide how those parts fit
+        together into a coherent story. The cards provide content to work with;
+        they do not supply the causal or narrative relationships for the student.
       </p>
 
       <p>
-        Students can generate story elements, organize ideas, receive different
-        levels of language support, write their stories, and save or print
-        their work.
+        Story Builder can be used for oral storytelling, planning, written or
+        typed composition, or scribed composition. If handwriting, spelling, or
+        typing is not the instructional target, an educator can scribe the
+        student's language so those demands do not replace the language task.
       </p>
 
     </section>
@@ -1216,117 +953,88 @@
       <h2>🎲 Build a Story</h2>
 
       <p>
-        Roll all story elements at once or roll individual cards to change
-        only one part of the story.
+        <strong>Create a Story</strong> rolls the visual idea cards for Character,
+        Setting, Problem, and Feeling. These give the student content to work with
+        without deciding how the story should unfold.
+      </p>
+
+      <p>
+        The student then builds the rest of the narrative:
       </p>
 
       <ul>
-
-        <li>Character</li>
-
-        <li>Setting</li>
-
-        <li>Problem</li>
-
-        <li>Feeling</li>
-
-        <li>Plan</li>
-
-        <li>Item</li>
-
+        <li><strong>Plan:</strong> What does the character decide or hope to do after the problem, given how the character feels?</li>
+        <li><strong>Action / Attempt(s):</strong> What does the character actually do or try to carry out the plan?</li>
+        <li><strong>Resolution:</strong> What happens because of the attempt, and how is the problem resolved?</li>
       </ul>
 
       <p>
-        The free sample includes a smaller selection of cards in each category.
-        The full version includes an expanded library for many more possible
-        story combinations.
+        <strong>Plan is student-generated.</strong> If the student needs an idea,
+        the existing Plan cards can be rolled as optional idea help. A rolled idea
+        can be used, changed, or ignored; it does not replace the student's own plan.
+      </p>
+
+      <p>
+        <strong>Action / Attempt(s) and Resolution are student-generated.</strong>
+        They are not rolled by the app.
+      </p>
+
+      <p>
+        <strong>Story path:</strong>
+        Problem + Feeling → Plan → Action / Attempt(s) → Resolution
+      </p>
+
+      <p>
+        The <strong>Item</strong> card is optional. It can add an object as an
+        extra creative constraint, but Item is not treated as a required narrative
+        function.
+      </p>
+
+      <p>
+        Because the app supplies only part of the story, the same visual
+        combination can lead to many different plans, attempts, and resolutions.
       </p>
 
       <h2>⚙️ Customize Story Elements</h2>
 
       <p>
-        Educators can show or hide individual story categories to match student
-        needs. A Resolution card can also be included for complete story planning.
+        Educators can show or hide story parts to match student needs. The core
+        sequence includes Character, Setting, Problem, Feeling, Plan,
+        Action / Attempt(s), and Resolution. Item is available separately as an
+        optional story element.
       </p>
 
     </section>
 
-    <section id="supports">
+    <section id="instructional-support">
 
-      <h2>💭 Language Supports</h2>
-
-      <h3>🏷 Show Image Labels</h3>
+      <h2>🎯 Instructional Support</h2>
 
       <p>
-        Displays the name of each selected image to support vocabulary,
-        spelling, and word retrieval.
-      </p>
-
-      <h3>📚 Story Vocabulary</h3>
-
-      <p>
-        Automatically creates a vocabulary list using the selected story
-        elements.
-      </p>
-
-      <h3>✏ Sentence Support</h3>
-
-      <p>
-        Choose the amount of support students need:
-      </p>
-
-      <ul>
-
-        <li>Off</li>
-
-        <li>Open Prompts</li>
-
-        <li>Sentence Starters</li>
-
-        <li>Generated Starters</li>
-
-      </ul>
-
-      <p>
-        Generated sentence starters automatically use the selected story
-        elements.
-      </p>
-
-      <h3>💭 Thinking Prompts</h3>
-
-      <p>
-        Thinking Prompts encourage students to think more deeply about
-        character motivation, emotions, problem solving, cause and effect,
-        and story organization.
-      </p>
-
-    </section>
-
-    <section id="challenge">
-
-      <h2>⭐ Story Challenge</h2>
-
-      <p>
-        Add an optional language challenge to a story.
-      </p>
-
-      <ul>
-
-        <li>Off</li>
-
-        <li>Educator Challenge Pool</li>
-
-        <li>Educator Choice</li>
-
-      </ul>
-
-      <p>
-        Challenges can target vocabulary, complex sentences, social thinking,
-        and narrative language.
+        Educators can choose one primary instructional target based on the
+        language skill being taught or the breakdown observed in the student's
+        first attempt. Story Builder does not diagnose the target or score student
+        performance.
       </p>
 
       <p>
-        Students reveal the challenge by flipping a mystery card.
+        The student attempts the language first. If targeted help is needed,
+        choose <strong>Need help?</strong> to reveal one support step at a time
+        in the relevant part of the Story Planner. Support becomes more explicit
+        only as needed, and the student then retries or reformulates the same
+        language demand.
+      </p>
+
+      <p>
+        Current instructional targets include Story Organization,
+        Connections &amp; Cohesion, Cause &amp; Effect, Sentence Formulation,
+        Elaboration, Perspective &amp; Internal State, and Vocabulary Precision.
+      </p>
+
+      <p>
+        Access help such as clarifying directions, locating a story element,
+        rereading a prompt, navigating the planner, or explaining a non-target
+        word is kept separate from support for the selected instructional target.
       </p>
 
     </section>
@@ -1336,9 +1044,10 @@
       <h2>🗂 Interactive Story Planner</h2>
 
       <p>
-        The Story Planner automatically copies selected story elements into
-        a graphic organizer where students can organize their ideas before
-        writing.
+        The Story Planner carries the rolled story ideas into a graphic organizer
+        and adds space for the student-generated Plan, Action / Attempt(s), and
+        Resolution. It can support oral rehearsal, brief notes, scribed responses,
+        or written planning.
       </p>
 
       <ul>
@@ -1353,15 +1062,22 @@
 
         <li>Plan</li>
 
-        <li>Item</li>
+        <li>Action / Attempt(s)</li>
 
         <li>Resolution</li>
 
       </ul>
 
       <p>
-        Planner prompts automatically adjust to match the selected sentence
-        support level.
+        If the optional Item element is turned on, it also appears in the planner
+        so the student can decide whether and how it matters to the plan, attempt,
+        or other part of the story.
+      </p>
+
+      <p>
+        Guiding questions remain available as the planning baseline. When an
+        Instructional Target is selected, targeted support can be opened one
+        step at a time only where it is needed.
       </p>
 
     </section>
@@ -1371,30 +1087,22 @@
       <h2>💾 Save &amp; Open Stories</h2>
 
       <p>
-        Story Builder automatically saves student work in the browser while
-        students write.
+        Story Builder automatically saves the current work in this browser.
+        Existing browser-saved work from the earlier free sample can still be
+        restored.
       </p>
 
       <p>
-        Stories can also be saved as First Volo Story Builder files that
-        preserve:
+        <strong>Save Story</strong> downloads a Story Builder backup file.
+        <strong>Open Story</strong> restores a saved Story Builder file. Older
+        JSON save files from the free sample are also accepted.
       </p>
 
-      <ul>
-
-        <li>Story title</li>
-
-        <li>Writing</li>
-
-        <li>Planner notes</li>
-
-        <li>Story selections</li>
-
-        <li>Supports</li>
-
-        <li>Story Challenge settings</li>
-
-      </ul>
+      <p>
+        Saved copies can preserve the story title, planner notes, writing,
+        selected visual cards, display preferences, and instructional-support
+        state.
+      </p>
 
     </section>
 
@@ -1403,7 +1111,13 @@
       <h2>🖨 Print or Export as PDF</h2>
 
       <p>
-        Create a printable Story Planner that can include:
+        Create a printable Story Map that mirrors the story elements currently
+        turned on. The organizer includes the student-generated Plan,
+        Action / Attempt(s), and Resolution when those elements are enabled.
+      </p>
+
+      <p>
+        The printable pages can include:
       </p>
 
       <ul>
@@ -1414,13 +1128,12 @@
 
         <li>Vocabulary</li>
 
-        <li>Sentence supports</li>
 
         <li>Graphic organizer pages</li>
 
         <li>Writing paper</li>
 
-        <li>The student's typed draft</li>
+        <li>The student's typed story or draft</li>
 
       </ul>
 
@@ -1430,28 +1143,41 @@
 
       <h2>💡 Tips for Educators</h2>
 
-      <h3>Beginning Writers</h3>
+      <h3>Match the task to the instructional target</h3>
 
       <ul>
-
-        <li>Use fewer story elements.</li>
-
-        <li>Turn on labels and vocabulary.</li>
-
-        <li>Use Open Prompts.</li>
-
+        <li>
+          The student can tell the story aloud, type or write it, or dictate
+          while an educator scribes.
+        </li>
+        <li>
+          If handwriting, spelling, or typing is not the target, do not require
+          those skills to be the main way the student demonstrates narrative
+          language.
+        </li>
+        <li>
+          Use only the story elements that are useful for the student and the
+          instructional goal. Item remains optional, and a Plan Idea roll should
+          be used only when idea-generation support is helpful.
+        </li>
       </ul>
 
-      <h3>More Advanced Writers</h3>
+      <h3>Use targeted support responsively</h3>
 
       <ul>
+        <li>Let the student attempt the language before opening targeted support.</li>
+        <li>Use the least support likely to help, then have the student retry the same language demand.</li>
+        <li>Reduce or remove support when the student can maintain the target with less help.</li>
+        <li>Provide access help when needed without treating it as support for the language target.</li>
+      </ul>
 
-        <li>Use all story elements.</li>
+      <h3>Look for transfer</h3>
 
-        <li>Add Story Challenges.</li>
-
-        <li>Turn off supports for independent writing.</li>
-
+      <ul>
+        <li>
+          After the student improves within one story, use a new story with the
+          same target to see whether the skill carries over to new content.
+        </li>
       </ul>
 
     </section>
@@ -1471,6 +1197,36 @@
   </div>
 
 </div>
+  <!-- Hidden compatibility shims for older Story Builder saves. -->
+  <div class="legacy-support-compat" hidden aria-hidden="true">
+    <input type="radio" name="sentenceSupport" value="off" checked>
+    <input type="checkbox" id="thinkingPromptsToggle">
+    <input type="radio" name="challengeMode" value="none" checked>
+
+    <div id="challengeOptions" hidden></div>
+    <input type="text" id="tierTwoWord" value="">
+
+    <section id="mysteryChallengeSection" hidden>
+      <button id="revealChallengeButton" type="button"></button>
+      <p id="challengeError"></p>
+      <div id="challengeCardScene" hidden>
+        <div id="challengeConfetti"></div>
+        <div id="challengeCard"></div>
+        <span id="revealedCategory"></span>
+        <span id="revealedChallengeText"></span>
+      </div>
+    </section>
+
+    <section id="sentenceSupportPanel" hidden>
+      <div id="sentenceSupportContent"></div>
+    </section>
+
+    <section id="thinkingPromptPanel" hidden>
+      <ul></ul>
+    </section>
+  </div>
+
   <script src="script.js"></script>
+  <script src="instructional-support.js"></script>
 </body>
 </html>
