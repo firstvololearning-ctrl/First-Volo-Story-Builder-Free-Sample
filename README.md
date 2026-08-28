@@ -1,14 +1,15 @@
 FIRST VOLO STORY BUILDER — FREE SAMPLE FILES
 
-This folder contains the three replacement code files:
+This folder contains the four replacement code files:
 - index.html
 - style.css
 - script.js
+- instructional-support.js
 
 HOW TO USE
 1. Open your existing FREE FIRST VOLO STORY BUILDER SAMPLE folder.
 2. Keep your existing assets folder exactly where it is.
-3. Replace the old index.html, style.css, and script.js with these files.
+3. Replace the old index.html, style.css, script.js, and instructional-support.js with these files.
 4. Open index.html with Live Server in VS Code.
 
 IMPORTANT
