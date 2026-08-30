@@ -56,10 +56,6 @@
             firstvololearning.com
           </a>
 
-          <button id="aboutButton" class="about-button" type="button">
-            ℹ️ About
-          </button>
-
           <a
             class="full-story-link"
             href="https://firstvololearning-ctrl.github.io/First-Volo-Story-Builder/"
@@ -82,57 +78,28 @@
     <span class="sub">Roll All Cards</span>
   </button>
 
-  <button
-    class="reset-button"
-    id="resetAll"
-    type="button"
-  >
-    <span aria-hidden="true">↺</span>
-    Reset
-  </button>
-
-  <button
-    class="save-story-button"
-    id="saveStory"
-    type="button"
-  >
-    <span aria-hidden="true">💾</span>
-    Save Story
-  </button>
-
-  <button
-    class="open-story-button"
-    id="openStory"
-    type="button"
-  >
-    <span aria-hidden="true">📂</span>
-    Open Story
-  </button>
-
-  <input
-    type="file"
-    id="openStoryFile"
-    accept=".firstvolo,.json,application/json"
-    hidden
-  >
-
-  <button
-    class="print-button"
-    id="printPlanner"
-    type="button"
-  >
-    <span aria-hidden="true">🖨</span>
-    Print Planner
-  </button>
-
-  <button
-    class="pdf-button"
-    id="savePdf"
-    type="button"
-  >
-    <span aria-hidden="true">📄</span>
-    Export PDF
-  </button>
+  <details class="more-actions">
+    <summary aria-label="More story actions">••• More</summary>
+    <div class="more-actions-menu">
+      <button class="reset-button" id="resetAll" type="button">
+        <span aria-hidden="true">↺</span> Reset
+      </button>
+      <button class="save-story-button" id="saveStory" type="button">
+        <span aria-hidden="true">💾</span> Save Story
+      </button>
+      <button class="open-story-button" id="openStory" type="button">
+        <span aria-hidden="true">📂</span> Open Story
+      </button>
+      <input type="file" id="openStoryFile" accept=".firstvolo,.json,application/json" hidden>
+      <button class="print-button" id="printPlanner" type="button">
+        <span aria-hidden="true">🖨</span> Print Planner
+      </button>
+      <button class="pdf-button" id="savePdf" type="button">
+        <span aria-hidden="true">📄</span> Export PDF
+      </button>
+      <button id="aboutButton" class="about-button" type="button">ℹ️ About</button>
+    </div>
+  </details>
 
 </div>
 
@@ -143,6 +110,27 @@
   aria-live="polite"
 ></p>
 
+
+          <section class="story-goal-control" aria-labelledby="storyGoalHeading">
+            <h2 id="storyGoalHeading">🎯 Story Goal</h2>
+            <div class="settings-content">
+              <label class="instructional-target-label" for="instructionalTarget">Choose a goal</label>
+              <select id="instructionalTarget" class="instructional-target-select">
+                <option value="off">Off</option>
+                <option value="observe-first" selected>Observe First · Choose After First Tell</option>
+                <option value="story-organization">Story Organization</option>
+                <option value="connections-cohesion">Connections &amp; Cohesion</option>
+                <option value="cause-effect">Cause &amp; Effect</option>
+                <option value="sentence-formulation">Sentence Formulation</option>
+                <option value="elaboration">Elaboration</option>
+                <option value="perspective-internal-state">Perspective &amp; Internal State</option>
+                <option value="vocabulary-precision">Vocabulary Precision</option>
+              </select>
+              <p class="instructional-target-setting-summary" id="instructionalTargetSettingSummary">
+                Observe the first tell before choosing a target, or select one now if the goal is already known.
+              </p>
+            </div>
+          </section>
 
           <div class="settings-grid">
             <details>
@@ -165,32 +153,6 @@
 
 
 
-
-<details class="instructional-target-settings">
-  <summary>Instructional Target</summary>
-
-  <div class="settings-content">
-    <label class="instructional-target-label" for="instructionalTarget">
-      Primary target
-    </label>
-
-    <select id="instructionalTarget" class="instructional-target-select">
-      <option value="off">Off</option>
-      <option value="observe-first">Observe First · Choose After First Tell</option>
-      <option value="story-organization">Story Organization</option>
-      <option value="connections-cohesion">Connections &amp; Cohesion</option>
-      <option value="cause-effect">Cause &amp; Effect</option>
-      <option value="sentence-formulation">Sentence Formulation</option>
-      <option value="elaboration">Elaboration</option>
-      <option value="perspective-internal-state">Perspective &amp; Internal State</option>
-      <option value="vocabulary-precision">Vocabulary Precision</option>
-    </select>
-
-    <p class="instructional-target-setting-summary" id="instructionalTargetSettingSummary">
-      Start with a known goal, or choose Observe First and select the primary target after the student's first whole-story attempt.
-    </p>
-  </div>
-</details>
 
             <details>
               <summary>Story Elements</summary>
@@ -220,16 +182,6 @@
 
           </div>
 
-<div class="title-control">
-  <label for="storyTitle">Story Title</label>
-
-  <input
-    type="text"
-    id="storyTitle"
-    placeholder="Type your story title..."
-    maxlength="100"
-  >
-</div>
           <p
             class="roll-status"
             id="rollStatus"
@@ -242,6 +194,10 @@
       </header>
 
       <main class="story-grid" id="storyGrid">
+
+        <section class="story-arc-group" aria-labelledby="setStoryHeading">
+          <h2 class="story-arc-heading" id="setStoryHeading">Set the Story</h2>
+          <div class="story-arc-cards">
 
         <article class="card" id="characterCard">
           <div class="card-heading">
@@ -287,6 +243,13 @@
           </button>
         </article>
 
+          </div>
+        </section>
+
+        <section class="story-arc-group" aria-labelledby="somethingHappensHeading">
+          <h2 class="story-arc-heading" id="somethingHappensHeading">Something Happens</h2>
+          <div class="story-arc-cards">
+
         <article class="card" id="problemCard">
           <div class="card-heading">
             <span class="step-number">3</span>
@@ -330,6 +293,13 @@
             ↻ Roll
           </button>
         </article>
+
+          </div>
+        </section>
+
+        <section class="story-arc-group" aria-labelledby="characterRespondsHeading">
+          <h2 class="story-arc-heading" id="characterRespondsHeading">The Character Responds</h2>
+          <div class="story-arc-cards">
 
         <article class="card plan-card" id="planCard">
           <div class="card-heading">
@@ -382,6 +352,13 @@
           </p>
         </article>
 
+          </div>
+        </section>
+
+        <section class="story-arc-group" aria-labelledby="storyEndHeading">
+          <h2 class="story-arc-heading" id="storyEndHeading">What Happens in the End?</h2>
+          <div class="story-arc-cards">
+
         <article class="card resolution-card student-generated-card" id="resolutionCard">
           <div class="card-heading">
             <span class="step-number">7</span>
@@ -402,6 +379,13 @@
             What happens because of the attempt(s)? How is the problem resolved?
           </p>
         </article>
+
+          </div>
+        </section>
+
+        <section class="story-arc-group optional-story-arc" aria-labelledby="optionalItemHeading">
+          <h2 class="story-arc-heading" id="optionalItemHeading">Optional Story Element</h2>
+          <div class="story-arc-cards">
 
         <article class="card optional-story-card hidden-category" id="itemCard">
           <div class="card-heading">
@@ -425,7 +409,21 @@
           </button>
         </article>
 
+          </div>
+        </section>
+
       </main>
+
+<div class="title-control story-title-after-cards">
+  <label for="storyTitle">Story Title</label>
+
+  <input
+    type="text"
+    id="storyTitle"
+    placeholder="Type your story title..."
+    maxlength="100"
+  >
+</div>
 
 <section
   class="instructional-session-panel"
