@@ -3530,3 +3530,39 @@ body.modal-open {
 }
 
 .school-year-access-note p + p { margin-top: 8px; }
+
+/* Prominent public updates and free-access destination. */
+.updates-access-action {
+  margin: 20px auto 24px;
+  max-width: 780px;
+}
+.updates-access-button {
+  display: inline-block;
+  max-width: 100%;
+  padding: 17px 26px;
+  border: 2px solid var(--navy);
+  border-radius: 12px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.45;
+  text-decoration: none;
+  box-shadow: 0 5px 14px rgba(32, 63, 114, 0.18);
+}
+.updates-access-button:hover {
+  background: var(--navy-dark);
+  border-color: var(--navy-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.updates-access-button:focus-visible {
+  outline: 3px solid #b96214;
+  outline-offset: 4px;
+}
+@media (max-width: 600px) {
+  .updates-access-button { display: block; padding: 16px 18px; font-size: 18px; }
+}
+@media print {
+  .updates-access-action { display: none !important; }
+}
