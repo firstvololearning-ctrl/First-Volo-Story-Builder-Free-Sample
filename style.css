@@ -3494,3 +3494,39 @@ body.modal-open {
     font-size: 0.64rem;
   }
 }
+
+/* School-year access request notice */
+.school-year-access-note {
+  max-width: 780px;
+  margin: 0 auto 20px;
+  padding: 16px 20px;
+  border: 1px solid #cbd9eb;
+  border-radius: 14px;
+  background: var(--soft-blue);
+  text-align: left;
+}
+.school-year-access-note h2 {
+  margin: 0 0 8px;
+  color: var(--navy);
+  font-size: 18px;
+  line-height: 1.35;
+}
+.school-year-access-note p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.school-year-access-note a {
+  color: var(--navy);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.school-year-access-note a:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 3px;
+}
+@media print {
+  .school-year-access-note { display: none !important; }
+}
+
+.school-year-access-note p + p { margin-top: 8px; }
